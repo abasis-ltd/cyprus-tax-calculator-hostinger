@@ -1,0 +1,46 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+  RewriteRule ^index\.html$ - [L]
+
+  # Serve existing files and directories as-is (assets, /el/, /ru/)
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # Per-language SPA shells fall back to their own index.html
+  RewriteRule ^(el|ru)(/.*)?$ /$1/index.html [L]
+
+  # Everything else → root (English) SPA shell
+  RewriteRule . /index.html [L]
+</IfModule>
+
+# ES module workers emitted by Vite use .mjs. Hostinger/LiteSpeed otherwise
+# serves them as text/plain; with nosniff enabled the browser refuses to load
+# pdf.js and every PDF is reported as an unreadable return.
+<IfModule mod_mime.c>
+  AddType application/javascript .mjs
+  # The OCR runtime: LiteSpeed serves .wasm and .onnx as text/plain, which forbids
+  # WebAssembly.instantiateStreaming and leaves onnxruntime on its slow fallback.
+  AddType application/wasm .wasm
+  AddType application/octet-stream .onnx
+  AddType application/manifest+json .webmanifest
+</IfModule>
+
+# Security headers
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set X-Frame-Options "SAMEORIGIN"
+  Header set X-XSS-Protection "1; mode=block"
+</IfModule>
+
+# Caching for static assets
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType application/wasm "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+</IfModule>

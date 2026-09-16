@@ -1,0 +1,87 @@
+# Cyprus Tax Calculator
+
+> Free calculator for Cyprus net salary under the 2025 rules and the 2026 tax
+> reform: income tax bands, Social Insurance (8.8%), GESY (2.65%), the 20%/25%/50%
+> newcomer exemptions, and the new 2026 family deductions (children, housing,
+> eco upgrades, insurance). Salary calculations run in the browser without an account. Built by Abasis.AI.
+
+The calculator is available in English, Greek and Russian. Each language lives
+at its own path and carries the same content.
+
+## Pages
+
+- [Salary calculator (English)](https://cyprustaxcalculator.abasis.ai/): net
+  salary from gross for 2025 and 2026 side by side, with the full deduction
+  breakdown, employer cost, and a 2026-reform FAQ based on official Cyprus Tax
+  Department guidance.
+- [Υπολογιστής μισθού (Ελληνικά)](https://cyprustaxcalculator.abasis.ai/el/)
+- [Калькулятор зарплаты (Русский)](https://cyprustaxcalculator.abasis.ai/ru/)
+
+## Guides
+
+Step-by-step guides to Cyprus tax paperwork, written from the official forms, the
+department's own guides and the law. Each guide exists in English, Greek and Russian
+at /guides/<slug>/, /el/guides/<slug>/ and /ru/guides/<slug>/.
+
+- [Guides index](https://cyprustaxcalculator.abasis.ai/guides/)
+- [Getting a Cyprus tax number through Tax For All](https://cyprustaxcalculator.abasis.ai/guides/tin/):
+  creating the portal account, the eligibility check, the documents each category has to
+  attach, the REG reference number, processing time, and the TAXISnet account that
+  follows automatically.
+- [Non-dom status and form T.D.38](https://cyprustaxcalculator.abasis.ai/guides/non-dom/):
+  who still qualifies for exemption from the Special Contribution for Defence, the T.D.38
+  declaration with questionnaires T.D.38Qa and T.D.38Qb, the evidence the Tax Department
+  asks for, stopping the deduction at source, the three-year renewal, the 17-of-20 rule,
+  and the €250,000 alternative method under article 3D.
+- [Tax residence certificate](https://cyprustaxcalculator.abasis.ai/guides/tax-residence-certificate/):
+  when the Tax Department issues one, the double tax treaty precondition, the €80 stamp
+  fee and when it is paid, form T.F.126 for individuals and T.F.98 for companies, the
+  documents the district office asks for, how days are counted under the 183-day rule,
+  and the five conditions of the 60-day rule.
+- [The 50% exemption, article 8(23A)](https://cyprustaxcalculator.abasis.ai/guides/exemption-50-percent/):
+  the versions before and after amending law 51(I)/2023, the €55,000 test and how it is
+  measured, the 17-year period, what changing employer or leaving Cyprus does, and how
+  the exemption is claimed through PAYE on form T.D.59.
+- [The 25% exemption, article 8(21B)](https://cyprustaxcalculator.abasis.ai/guides/exemption-25-percent/):
+  the Talent Repatriation Scheme — seven years of absence after having been a Cyprus tax
+  resident, the €30,000 floor and €25,000 cap, the qualification and 36-or-84-month work
+  test, and the fact that it is the only one of the three open to the self-employed.
+- [The 20% exemption, article 8(21A)](https://cyprustaxcalculator.abasis.ai/guides/exemption-20-percent/):
+  no minimum salary and no degree, the €8,550 annual cap, the three years abroad and the
+  four-month gap rule, the seven years starting the year after employment begins, and why
+  a change of employer ends it.
+- [Filing the 2025 tax return in TAXISnet](https://cyprustaxcalculator.abasis.ai/guides/file-return-2025/):
+  who must file for 2025, what to collect, the return part by part, the department's own
+  list of common mistakes, Final Submit, paying in the Tax Portal, the 31 October 2026
+  deadline and what late filing costs, and how to correct a return already filed.
+
+- [Form T.D.59, the employee declaration](https://cyprustaxcalculator.abasis.ai/guides/ir59/):
+  what goes in each part, how the 2026 deductions are entered as one figure per category,
+  how the relocation exemptions reach PAYE through it, and the cost of not filing one.
+- [Renting out property](https://cyprustaxcalculator.abasis.ai/guides/rental-income/):
+  income tax, the defence contribution up to 2025 and its abolition from 2026, GESY and
+  the self-assessment codes, the 20% allowance and capital allowances, VAT and the
+  T.F.1220 election, Airbnb income, and the electronic-payment duty from 1 July 2026.
+- [Self-employed](https://cyprustaxcalculator.abasis.ai/guides/self-employed/):
+  social insurance at 16.6% of a deemed income by occupational category, GESY at 4%,
+  temporary tax in two instalments, the accounts and audit threshold, and the €15,600 VAT
+  registration tests.
+- [The 2026 tax reform for individuals](https://cyprustaxcalculator.abasis.ai/guides/reform-2026/):
+  the €22,000 tax-free amount and the new bands, the deductions for children, housing,
+  energy upgrades and home insurance with their income criteria, the defence contribution
+  at 5% on dividends and its abolition on rents, and the filing duty for ages 25 to 70.
+
+## FAQ topics covered on the calculator page
+
+Tax brackets and filing, income thresholds, child deductions, the housing
+deduction, energy and EV deductions, home insurance, rental income under the
+2026 changes, life insurance and penalties, the 20%/25%/50% exemptions, special
+tax elections, deduction limits and caps, and how deductions apply monthly.
+
+## Sources
+
+The calculations and FAQ follow the Cyprus Tax Department's published guidance
+on the 2026 tax reform, including the explanatory guide, worked examples, the
+official FAQ for individuals, and the employer income tax withholding
+calculation tool. Links to each document are listed in the "Official References
+& Forms" section of the calculator page.
