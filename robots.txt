@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+
+# Prevent indexing of tax calculation parameters to save crawl budget
+Disallow: /*?*g=
+Disallow: /*?*salary=
+Disallow: /*?*children=
+Disallow: /*?*period=
+
+# Allow language parameters
+Allow: /*?lng=en
+Allow: /*?lng=el
+Allow: /*?lng=ru
+
+Sitemap: https://cyprustaxcalculator.abasis.ai/sitemap.xml
