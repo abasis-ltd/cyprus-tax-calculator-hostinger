@@ -61,6 +61,36 @@
     <priority>0.3</priority>
   </url>
   <url>
+    <loc>https://cyprustaxcalculator.abasis.ai/redact/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cyprustaxcalculator.abasis.ai/redact/"/>
+    <xhtml:link rel="alternate" hreflang="el" href="https://cyprustaxcalculator.abasis.ai/el/redact/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://cyprustaxcalculator.abasis.ai/ru/redact/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cyprustaxcalculator.abasis.ai/redact/"/>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cyprustaxcalculator.abasis.ai/el/redact/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cyprustaxcalculator.abasis.ai/redact/"/>
+    <xhtml:link rel="alternate" hreflang="el" href="https://cyprustaxcalculator.abasis.ai/el/redact/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://cyprustaxcalculator.abasis.ai/ru/redact/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cyprustaxcalculator.abasis.ai/redact/"/>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://cyprustaxcalculator.abasis.ai/ru/redact/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cyprustaxcalculator.abasis.ai/redact/"/>
+    <xhtml:link rel="alternate" hreflang="el" href="https://cyprustaxcalculator.abasis.ai/el/redact/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://cyprustaxcalculator.abasis.ai/ru/redact/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cyprustaxcalculator.abasis.ai/redact/"/>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://cyprustaxcalculator.abasis.ai/guides/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://cyprustaxcalculator.abasis.ai/guides/"/>
     <xhtml:link rel="alternate" hreflang="el" href="https://cyprustaxcalculator.abasis.ai/el/guides/"/>
