@@ -16,6 +16,17 @@ at its own path and carries the same content.
   Department guidance.
 - [Υπολογιστής μισθού (Ελληνικά)](https://cyprustaxcalculator.abasis.ai/el/)
 - [Калькулятор зарплаты (Русский)](https://cyprustaxcalculator.abasis.ai/ru/)
+- [2025 tax return helper, form TD.1](https://cyprustaxcalculator.abasis.ai/declaration/):
+  prepares the 2025 income tax return filed in TAXISnet in 2026. Imports the employer's
+  IR63A certificate or takes the amounts by hand, adds income and deductions the
+  certificate does not cover, flags what needs review, and lists each figure against
+  the TAXISnet field it goes into. It does not submit the return; the person checks
+  the figures and files it themselves. Free, no account.
+  Also at /el/declaration/ and /ru/declaration/.
+- [Check a filed return, form T.D.1](https://cyprustaxcalculator.abasis.ai/check/):
+  reads the PDF of a return already submitted and compares its calculation with the
+  calculator's. The PDF stays on the device; a report is sent only if the person
+  chooses to share it. Also at /el/check/ and /ru/check/.
 
 ## Guides
 
@@ -74,6 +85,54 @@ at /guides/<slug>/, /el/guides/<slug>/ and /ru/guides/<slug>/.
   the eleven steps from gross to net with their formulas — social insurance at 8.8% up to
   €68,904, GESY at 2.65% up to €180,000, the one-fifth cap, the 20/25/50% exemptions, the
   2026 deductions, the bands and monthly withholding — on one example of €5,000 a month.
+- [TAXISnet or Tax For All: which Cyprus tax portal to use](https://cyprustaxcalculator.abasis.ai/guides/which-portal/):
+  the tax year decides the portal: TAXISnet for returns up to 2025, Tax For All from
+  2026 and for your registration, messages and IBAN, the Tax Portal for paying.
+- [Cyprus tax deadlines for individuals: the 2025 return, provisional tax and the 2026 return](https://cyprustaxcalculator.abasis.ai/guides/filing-deadlines/):
+  the 2025 return and balance by 31 October 2026, the audited self-employed dates,
+  provisional tax on 31 July and 31 December, the 2026 return, and what each missed date
+  costs.
+- [Paying the balance of your 2025 Cyprus tax return](https://cyprustaxcalculator.abasis.ai/guides/pay-tax-balance/):
+  where the amount to pay comes from, the Tax Portal and its 13-digit payment reference
+  code, card or internet banking, the 31 October 2026 deadline and how to check the
+  payment.
+- [The bank account for Cyprus tax refunds: form T.D.2008](https://cyprustaxcalculator.abasis.ai/guides/refund-bank-account/):
+  registering or changing the IBAN the Tax Department pays refunds into: form T.D.2008,
+  the bank’s IBAN certificate, Tax For All with CY Login from 5 October 2026, and when a
+  2025 refund arrives.
+- [Am I a Cyprus tax resident? The 183-day and 60-day rules](https://cyprustaxcalculator.abasis.ai/guides/tax-resident/):
+  how the days are counted, every condition of the 60-day rule for 2025 and for 2026,
+  the condition Ν.244(Ι)/2025 removed, what residence changes, and what to answer in the
+  return.
+- [Am I domiciled in Cyprus? Domicile and the defence contribution](https://cyprustaxcalculator.abasis.ai/guides/domicile/):
+  domicile of origin under Cap. 195, the two exceptions, the 17-of-20 rule and, from
+  2026, the 20 years abroad it takes to lose it — with the €250,000 option and the rates
+  it decides.
+- [Changing your address and personal details with the Cyprus Tax Department](https://cyprustaxcalculator.abasis.ai/guides/change-your-details/):
+  phones, addresses and email you change yourself in the Tax For All profile; name,
+  category and activity go on form T.D.2003, sent as a message in the same portal.
+- [Registering for VAT in Cyprus as an individual](https://cyprustaxcalculator.abasis.ai/guides/vat-registration/):
+  the two €15,600 tests, thirty days to notify and €85 a month for missing it, the paper
+  form T.D.1101, and the EU services that need a VAT number from the first invoice.
+- [Registering with Social Insurance as self-employed in Cyprus](https://cyprustaxcalculator.abasis.ai/guides/social-insurance-self-employed/):
+  registration from the first day on form Υ.Κ.Α. 1-013, 16.6% of your category’s
+  insurable earnings each quarter, the HRDA levy from 6 April 2026, and GESY collected
+  alongside.
+
+## Worked examples
+
+Typical cases computed by the calculator's own engine at page load, 2025 and 2026
+side by side, line by line. Each exists in English, Greek and Russian at
+/examples/<slug>/, /el/examples/<slug>/ and /ru/examples/<slug>/.
+
+- [Examples index](https://cyprustaxcalculator.abasis.ai/examples/)
+- [An employee on €28,000](https://cyprustaxcalculator.abasis.ai/examples/employee-28000/): income tax, social insurance and GESY under the 2025 bands and the 2026 reform.
+- [An employee on €60,000](https://cyprustaxcalculator.abasis.ai/examples/employee-60000/): the same, further up the scale; social insurance comes off before tax.
+- [A couple with two children](https://cyprustaxcalculator.abasis.ai/examples/family-two-children/): the 2026 child and rent deductions inside the €100,000 family limit.
+- [An executive with the 50% exemption](https://cyprustaxcalculator.abasis.ai/examples/relocated-50-percent/): article 8(23A) on €120,000: what the exemption reaches and the 2026 social insurance ceiling.
+- [A returnee with the 25% exemption](https://cyprustaxcalculator.abasis.ai/examples/returnee-25-percent/): article 8(21B) on €50,000.
+- [An employee who lets a flat](https://cyprustaxcalculator.abasis.ai/examples/landlord/): rent taxed with salary less 20%, GESY on rent, and the end of defence contribution on rent in 2026.
+- [A non-domiciled resident living on investments](https://cyprustaxcalculator.abasis.ai/examples/non-dom-investor/): dividends and interest: no income tax, no defence contribution, GESY only.
 
 ## FAQ topics covered on the calculator page
 
