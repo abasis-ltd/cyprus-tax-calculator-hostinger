@@ -70,6 +70,10 @@ at /guides/<slug>/, /el/guides/<slug>/ and /ru/guides/<slug>/.
   the €22,000 tax-free amount and the new bands, the deductions for children, housing,
   energy upgrades and home insurance with their income criteria, the defence contribution
   at 5% on dividends and its abolition on rents, and the filing duty for ages 25 to 70.
+- [How the tax on a salary is worked out](https://cyprustaxcalculator.abasis.ai/guides/how-tax-is-calculated/):
+  the eleven steps from gross to net with their formulas — social insurance at 8.8% up to
+  €68,904, GESY at 2.65% up to €180,000, the one-fifth cap, the 20/25/50% exemptions, the
+  2026 deductions, the bands and monthly withholding — on one example of €5,000 a month.
 
 ## FAQ topics covered on the calculator page
 
