@@ -91,6 +91,36 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://cyprustaxcalculator.abasis.ai/extension/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cyprustaxcalculator.abasis.ai/extension/"/>
+    <xhtml:link rel="alternate" hreflang="el" href="https://cyprustaxcalculator.abasis.ai/el/extension/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://cyprustaxcalculator.abasis.ai/ru/extension/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cyprustaxcalculator.abasis.ai/extension/"/>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://cyprustaxcalculator.abasis.ai/el/extension/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cyprustaxcalculator.abasis.ai/extension/"/>
+    <xhtml:link rel="alternate" hreflang="el" href="https://cyprustaxcalculator.abasis.ai/el/extension/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://cyprustaxcalculator.abasis.ai/ru/extension/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cyprustaxcalculator.abasis.ai/extension/"/>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://cyprustaxcalculator.abasis.ai/ru/extension/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cyprustaxcalculator.abasis.ai/extension/"/>
+    <xhtml:link rel="alternate" hreflang="el" href="https://cyprustaxcalculator.abasis.ai/el/extension/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://cyprustaxcalculator.abasis.ai/ru/extension/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cyprustaxcalculator.abasis.ai/extension/"/>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://cyprustaxcalculator.abasis.ai/privacy/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://cyprustaxcalculator.abasis.ai/privacy/"/>
     <xhtml:link rel="alternate" hreflang="el" href="https://cyprustaxcalculator.abasis.ai/el/privacy/"/>

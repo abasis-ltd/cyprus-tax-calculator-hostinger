@@ -27,6 +27,9 @@ at its own path and carries the same content.
   reads the PDF of a return already submitted and compares its calculation with the
   calculator's. The PDF stays on the device; a report is sent only if the person
   chooses to share it. Also at /el/check/ and /ru/check/.
+- [TD.1 browser extension and installation guide](https://cyprustaxcalculator.abasis.ai/extension/):
+  get the Chrome Web Store extension, learn what it fills in TAXISnet and what still
+  needs a manual check. Also at /el/extension/ and /ru/extension/.
 
 ## Guides
 
