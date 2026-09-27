@@ -122,6 +122,17 @@ at /guides/<slug>/, /el/guides/<slug>/ and /ru/guides/<slug>/.
   insurable earnings each quarter, the HRDA levy from 6 April 2026, and GESY collected
   alongside.
 
+## Tools for AI assistants (MCP)
+
+A public remote MCP server at https://api.abasis.ai/mcp (Streamable HTTP, no sign-in)
+gives AI assistants the calculator's own engine: `calculate_tax`,
+`calculate_gross_from_net` and `compare_scenarios` estimate full-year salary taxes for
+2025 and 2026, and `ask_tax_question` answers from the site's knowledge base of
+official Cyprus tax sources with source links. Add it in Claude as a custom connector
+(Customize → Connectors → Add custom connector) or in Codex with
+`codex mcp add cyprus-tax --url https://api.abasis.ai/mcp`. Results are estimates, not
+a filed return.
+
 ## Worked examples
 
 Typical cases computed by the calculator's own engine at page load, 2025 and 2026
