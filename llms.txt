@@ -126,8 +126,12 @@ at /guides/<slug>/, /el/guides/<slug>/ and /ru/guides/<slug>/.
 
 A public remote MCP server at https://api.abasis.ai/mcp (Streamable HTTP, no sign-in)
 gives AI assistants the calculator's own engine: `calculate_tax`,
-`calculate_gross_from_net` and `compare_scenarios` estimate full-year salary taxes for
-2025 and 2026, and `ask_tax_question` answers from the site's knowledge base of
+`calculate_gross_from_net`, `calculate_gross_from_employer_cost` and
+`compare_scenarios` support all 2025/2026 calculator options, including deductions,
+other income, self-employment and partial-year salary. `get_tax_return_template` and
+`calculate_return` calculate normalized annual returns for 2022–2026 with residency,
+foreign credits, validation issues and payment reconciliation. They accept explicitly
+supplied data and never access a local browser draft. `ask_tax_question` answers from the site's knowledge base of
 official Cyprus tax sources with source links. Add it in Claude as a custom connector
 (Customize → Connectors → Add custom connector) or in Codex with
 `codex mcp add cyprus-tax --url https://api.abasis.ai/mcp`. Results are estimates, not
