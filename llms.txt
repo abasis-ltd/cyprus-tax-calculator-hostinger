@@ -132,6 +132,8 @@ official Cyprus tax sources with source links. Add it in Claude as a custom conn
 (Customize → Connectors → Add custom connector) or in Codex with
 `codex mcp add cyprus-tax --url https://api.abasis.ai/mcp`. Results are estimates, not
 a filed return.
+Setup for each client, what the tools do and what reaches the server:
+https://cyprustaxcalculator.abasis.ai/connect/ (also /el/connect/ and /ru/connect/).
 
 ## Worked examples
 

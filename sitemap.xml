@@ -1080,4 +1080,34 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://cyprustaxcalculator.abasis.ai/connect/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cyprustaxcalculator.abasis.ai/connect/"/>
+    <xhtml:link rel="alternate" hreflang="el" href="https://cyprustaxcalculator.abasis.ai/el/connect/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://cyprustaxcalculator.abasis.ai/ru/connect/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cyprustaxcalculator.abasis.ai/connect/"/>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://cyprustaxcalculator.abasis.ai/el/connect/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cyprustaxcalculator.abasis.ai/connect/"/>
+    <xhtml:link rel="alternate" hreflang="el" href="https://cyprustaxcalculator.abasis.ai/el/connect/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://cyprustaxcalculator.abasis.ai/ru/connect/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cyprustaxcalculator.abasis.ai/connect/"/>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://cyprustaxcalculator.abasis.ai/ru/connect/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cyprustaxcalculator.abasis.ai/connect/"/>
+    <xhtml:link rel="alternate" hreflang="el" href="https://cyprustaxcalculator.abasis.ai/el/connect/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://cyprustaxcalculator.abasis.ai/ru/connect/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cyprustaxcalculator.abasis.ai/connect/"/>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
 </urlset>
