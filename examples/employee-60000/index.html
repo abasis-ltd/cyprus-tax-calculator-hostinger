@@ -11,7 +11,10 @@
   <script>
     (function () {
       try {
-        var dark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        // A theme picked with the toggle (useTheme.ts, key 'theme') wins over the OS.
+        var stored = null;
+        try { stored = window.localStorage.getItem('theme'); } catch (e) {}
+        var dark = stored === 'dark' || (stored !== 'light' && window.matchMedia('(prefers-color-scheme: dark)').matches);
         document.documentElement.classList.toggle('dark', dark);
         document.documentElement.style.colorScheme = dark ? 'dark' : 'light';
         var meta = document.querySelector('meta[name="theme-color"]');
@@ -57,9 +60,9 @@
   <meta name="twitter:image:alt" content="Cyprus tax on a €60,000 salary: 2025 and 2026 worked example" />
 
   <script type="application/ld+json" id="page-schema">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://cyprustaxcalculator.abasis.ai/examples/employee-60000/#page","name":"Cyprus tax on a €60,000 salary: 2025 and 2026 worked example","description":"Income tax, social insurance and GESY on a €60,000 Cyprus salary, line by line, under the 2025 rules and the 2026 reform.","url":"https://cyprustaxcalculator.abasis.ai/examples/employee-60000/","inLanguage":"en","dateModified":"2026-09-25","publisher":{"@type":"Organization","name":"Abasis.AI","url":"https://abasis.ai"}},{"@type":"BreadcrumbList","@id":"https://cyprustaxcalculator.abasis.ai/examples/employee-60000/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Calculator","item":"https://cyprustaxcalculator.abasis.ai/"},{"@type":"ListItem","position":2,"name":"Examples","item":"https://cyprustaxcalculator.abasis.ai/examples/"},{"@type":"ListItem","position":3,"name":"An employee on €60,000","item":"https://cyprustaxcalculator.abasis.ai/examples/employee-60000/"}]}]}</script>
-  <script type="module" crossorigin src="/assets/index-CN9g9iP6.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-MHEX60fg.css">
-  <meta name="app-revision" content="ba5886223cd9325091f90b9dd06d87fb2034296a">
+  <script type="module" crossorigin src="/assets/index-CT3xFXus.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-CSOOdaVZ.css">
+  <meta name="app-revision" content="38267b3eb99530841cadc963f82c15b5377f59bf">
   
 <link rel="manifest" href="/manifest.webmanifest"><script id="vite-plugin-pwa:register-sw" src="/registerSW.js"></script><link rel="alternate" hreflang="en" href="https://cyprustaxcalculator.abasis.ai/examples/employee-60000/">
 <link rel="alternate" hreflang="el" href="https://cyprustaxcalculator.abasis.ai/el/examples/employee-60000/">

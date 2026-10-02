@@ -8,6 +8,11 @@
   RewriteCond %{REQUEST_FILENAME} -d
   RewriteRule ^ - [L]
 
+  # A hashed asset that is not here is gone, not a page: answer 404 rather than the
+  # SPA shell, which the browser would refuse as a script under nosniff. The import
+  # then fails cleanly and src/staleChunkReload.ts reloads the tab.
+  RewriteRule ^assets/ - [R=404,L]
+
   # Per-language SPA shells fall back to their own index.html
   RewriteRule ^(el|ru)(/.*)?$ /$1/index.html [L]
 
@@ -32,6 +37,27 @@
   Header set X-Content-Type-Options "nosniff"
   Header set X-Frame-Options "SAMEORIGIN"
   Header set X-XSS-Protection "1; mode=block"
+  # The site is HTTPS-only; browsers ignore this header on plain HTTP.
+  Header always set Strict-Transport-Security "max-age=31536000"
+  # This origin holds tax IDs and the declaration draft, renders the assistant's
+  # markdown and accepts data from the extension bridge, so scripts may only come from
+  # here. What each source is for:
+  #   sha256-…              the theme script inlined in index.html (scripts/verify-csp.mjs
+  #                         fails the release when it changes without this hash)
+  #   wasm-unsafe-eval      pdf.js decoders and the OCR runtime compile WebAssembly
+  #   eu-assets.i.posthog   PostHog's remote config and lazy bundles
+  #   api.abasis.ai         chat and status ping
+  #   script.google*        the feedback form (Apps Script answers with a redirect)
+  #   img-src               no remote images: model markdown cannot load trackers
+  #   style-src unsafe-inline  React style props
+  # vite.config.ts reads this line for `vite preview`, so the browser checks run under it.
+  Header set Content-Security-Policy "default-src 'self'; script-src 'self' 'wasm-unsafe-eval' 'sha256-NOETNxZqhFZYjj9441jmlJ7gmNL37mBPJSNSSbjkNb0=' https://eu-assets.i.posthog.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self' blob: data: https://api.abasis.ai https://eu.i.posthog.com https://eu-assets.i.posthog.com https://script.google.com https://script.googleusercontent.com; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'"
+  # The OCR worker bundles onnxruntime, whose Emscripten bindings build a few
+  # functions with `new Function`. A worker served from a URL takes its CSP from its
+  # own response, so eval is allowed there only, never in the page.
+  <FilesMatch "^worker-[A-Za-z0-9_-]+\.js$">
+    Header set Content-Security-Policy "default-src 'self'; script-src 'self' 'wasm-unsafe-eval' 'unsafe-eval'; connect-src 'self' blob: data:; object-src 'none'; base-uri 'self'"
+  </FilesMatch>
 </IfModule>
 
 # Caching for static assets
