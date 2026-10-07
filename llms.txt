@@ -16,20 +16,13 @@ at its own path and carries the same content.
   Department guidance.
 - [Υπολογιστής μισθού (Ελληνικά)](https://cyprustaxcalculator.abasis.ai/el/)
 - [Калькулятор зарплаты (Русский)](https://cyprustaxcalculator.abasis.ai/ru/)
-- [2025 tax return helper, form TD.1](https://cyprustaxcalculator.abasis.ai/declaration/):
-  prepares the 2025 income tax return filed in TAXISnet in 2026. Imports the employer's
-  IR63A certificate or takes the amounts by hand, adds income and deductions the
-  certificate does not cover, flags what needs review, and lists each figure against
-  the TAXISnet field it goes into. It does not submit the return; the person checks
-  the figures and files it themselves. Free, no account.
-  Also at /el/declaration/ and /ru/declaration/.
-- [Check a filed return, form T.D.1](https://cyprustaxcalculator.abasis.ai/check/):
-  reads the PDF of a return already submitted and compares its calculation with the
-  calculator's. The PDF stays on the device; a report is sent only if the person
-  chooses to share it. Also at /el/check/ and /ru/check/.
-- [TD.1 browser extension and installation guide](https://cyprustaxcalculator.abasis.ai/extension/):
-  get the Chrome Web Store extension, learn what it fills in TAXISnet and what still
-  needs a manual check. Also at /el/extension/ and /ru/extension/.
+- [TaxEndaxi, the 2025 tax return helper, form TD.1](https://taxendaxi.com/): the
+  return, the check of a filed return, the TAXISnet browser extension and the PDF
+  redactor moved there from this site on 7 October 2026; the old addresses here
+  (/declaration/, /check/, /extension/, /redact/) forward to it. It prepares the 2025
+  income tax return filed in TAXISnet in 2026 and lists each figure against the
+  TAXISnet field it goes into; the person checks the figures and files it themselves.
+  Free, no account. Its own summary is at https://taxendaxi.com/llms.txt.
 
 ## Guides
 
