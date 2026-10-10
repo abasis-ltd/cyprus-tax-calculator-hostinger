@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="el">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<title>Stamp Duty Calculator</title>
+<style>
+:root {
+  --bg: #f6f6f5; --paper: #ffffff; --ink: #1c1c1c; --muted: #6b6b6b; --line: #dcdcd9;
+  --accent: #1f4fd1; --accent-ink: #ffffff; --warn-bg: #fff6e0; --warn-line: #e6c36a;
+  --err-bg: #fdecec; --err-line: #e2a3a3;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #161616; --paper: #202020; --ink: #ececec; --muted: #a0a0a0; --line: #3a3a3a;
+    --accent: #6f93ff; --accent-ink: #0d0d0d; --warn-bg: #3a3112; --warn-line: #7d6a2a;
+    --err-bg: #3c1d1d; --err-line: #7d3a3a;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #161616; --paper: #202020; --ink: #ececec; --muted: #a0a0a0; --line: #3a3a3a;
+  --accent: #6f93ff; --accent-ink: #0d0d0d; --warn-bg: #3a3112; --warn-line: #7d6a2a;
+  --err-bg: #3c1d1d; --err-line: #7d3a3a;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink);
+  font: 15px/1.45 -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+main { max-width: 820px; margin: 0 auto; padding: 24px 16px 64px; }
+h1 { font-size: 20px; margin: 0 0 4px; letter-spacing: .01em; }
+.sub { color: var(--muted); margin: 0 0 20px; font-size: 13px; }
+.card { background: var(--paper); border: 1px solid var(--line); border-radius: 10px; padding: 20px; }
+fieldset { border: 1px solid var(--line); border-radius: 8px; margin: 0 0 14px; padding: 10px 14px 6px; }
+fieldset.mode { background: var(--bg); }
+.parties { margin-top: 12px; }
+.party-head, .party { display: grid; grid-template-columns: 3fr 2fr; gap: 10px; }
+.party-head { font-size: 12px; color: var(--muted); padding-bottom: 6px; }
+.party { padding: 4px 0; }
+.party input { width: 100%; padding: 8px 10px; font: inherit; color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 6px; }
+@media (max-width: 560px) { .party-head { display: none; } .party { grid-template-columns: 1fr; gap: 6px; padding: 8px 0; border-bottom: 1px solid var(--line); } }
+.opt-sub { display: block; color: var(--muted); font-size: 12px; margin-top: 3px; }
+legend { font-weight: 600; font-size: 13px; padding: 0 6px; }
+label.opt { display: flex; gap: 10px; align-items: flex-start; padding: 7px 0; cursor: pointer; }
+label.opt input { margin-top: 3px; flex: none; }
+.field { display: grid; grid-template-columns: 1fr 200px; gap: 12px; align-items: center;
+  padding: 9px 0; border-bottom: 1px solid var(--line); }
+.field:last-of-type { border-bottom: 0; }
+.field input { width: 100%; padding: 8px 10px; font: inherit; color: var(--ink); background: var(--bg);
+  border: 1px solid var(--line); border-radius: 6px; text-align: right; }
+.field input[type=date] { text-align: left; }
+.field.wide { grid-template-columns: 1fr; }
+.field.wide input { text-align: left; }
+h2 { font-size: 16px; margin: 0 0 14px; }
+.actions { display: flex; flex-wrap: wrap; gap: 10px; justify-content: space-between; margin-top: 18px; }
+button { font: inherit; padding: 9px 16px; border-radius: 6px; border: 1px solid var(--line);
+  background: var(--paper); color: var(--ink); cursor: pointer; }
+button.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); font-weight: 600; }
+.note { background: var(--warn-bg); border: 1px solid var(--warn-line); border-radius: 8px;
+  padding: 10px 12px; font-size: 13px; margin-top: 14px; white-space: pre-line; }
+.errors { background: var(--err-bg); border: 1px solid var(--err-line); border-radius: 8px;
+  padding: 10px 12px; font-size: 13px; margin-top: 14px; white-space: pre-line; }
+table.res { width: 100%; border-collapse: collapse; }
+table.res td { padding: 7px 4px; border-bottom: 1px solid var(--line); vertical-align: top; }
+table.res td.v { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; padding-left: 16px; }
+table.res tr.total td { font-weight: 700; border-bottom: 0; }
+.hidden { display: none !important; }
+.info h3 { font-size: 14px; margin: 16px 0 6px; }
+.info table { border-collapse: collapse; }
+.info td { padding: 3px 14px 3px 0; }
+/* printed form */
+#report { font-family: Calibri, Arial, sans-serif; font-size: 11pt; color: #000; background: #fff;
+  border: 1px solid var(--line); padding: 24px; overflow-x: auto; }
+#report .logo { display: block; width: 200px; max-width: 100%; height: auto; margin: 0 0 14px; }
+#report .ph { text-align: center; font-size: 9pt; margin-bottom: 18px; }
+#report .who { font-weight: 700; margin: 2px 0; }
+#report .h { font-size: 16pt; font-weight: 700; margin: 22px 0 10px; }
+#report table { border-collapse: collapse; border: 1px solid #000; width: 100%; }
+#report td { padding: 2px 8px; overflow-wrap: anywhere; }
+#report td.v { text-align: right; white-space: nowrap; width: 1%; }
+#report .cat td { font-size: 14pt; font-weight: 700; }
+#report tr.total td { font-weight: 700; }
+#report .pf { font-size: 9pt; margin-top: 18px; }
+#report .scope { font-size: 9pt; margin-top: 12px; }
+@media (max-width: 560px) {
+  .field { grid-template-columns: 1fr; gap: 6px; }
+  #report { padding: 12px; }
+  #report .cat td { font-size: 12pt; }
+  #report .h { font-size: 13pt; }
+  #report td { padding: 2px 4px; }
+}
+@media print {
+  body { background: #fff; }
+  main > *:not(#page-report), #page-report > *:not(#report) { display: none !important; }
+  main { padding: 0; max-width: none; }
+  #page-report { border: 0; padding: 0; }
+  #report { border: 0; padding: 0; }
+}
+</style>
+</head>
+<body>
+<main>
+  <h1>ΥΠΟΛΟΓΙΣΜΟΣ ΤΕΛΩΝ ΧΑΡΤΟΣΗΜΩΝ (COMPUTATION OF STAMP DUTY TAX)</h1>
+  <p class="sub">Web replica of the Tax Department's Excel tool “Stamps-final-wp.xlsm” (STAMP DUTIES V4). Not an official service; nothing is sent anywhere.</p>
+
+  <!-- Page 0: category -->
+  <section class="card" id="page-0">
+    <fieldset class="mode">
+      <legend>Μέθοδος υπολογισμού (Calculation method)</legend>
+      <label class="opt"><input type="radio" name="mode" value="tool" checked><span><b>Όπως το εργαλείο του Τμήματος</b> (as the Tax Department's Excel tool, versions 2023 and 30.06.2025): 1,5‰ / 2‰ on the exact amount; charges €35 + 10% of the excess.</span></label>
+      <label class="opt"><input type="radio" name="mode" value="law"><span><b>Κατά το κείμενο του άρθρου 20</b> (as the text of the law): €1,50 / €2,00 per €1.000 or part; charges €2 if duty ≤ €2, €35 + 10 cents per euro or part of the excess; double after six months.</span></label>
+    </fieldset>
+    <fieldset>
+      <legend>ΣΥΜΒΑΣΕΙΣ ΜΕΤΑΞΥ ΔΥΟ Ή ΠΕΡΙΣΣΟΤΕΡΩΝ ΝΟΜΙΚΩΝ ΠΡΟΣΩΠΩΝ (AGREEMENTS BETWEEN TWO OR MORE LEGAL ENTITIES)</legend>
+      <label class="opt"><input type="radio" name="opt" value="OB11" checked><span>ΣΥΜΒΑΣΕΙΣ ΜΙΣΘΩΣΗΣ ΑΚΙΝΗΤΩΝ ΟΡΙΣΜΕΝΟΥ ΧΡΟΝΟΥ (FIXED-TERM PROPERTY LEASE AGREEMENTS BETWEEN TWO OR MORE LEGAL ENTITIES)</span></label>
+      <label class="opt"><input type="radio" name="opt" value="OB12"><span>ΣΥΜΒΑΣΕΙΣ ΜΙΣΘΩΣΗΣ ΑΚΙΝΗΤΩΝ ΑΟΡΙΣΤΟΥ ΧΡΟΝΟΥ (INDEFINITE-TERM PROPERTY LEASE AGREEMENTS BETWEEN TWO OR MORE LEGAL ENTITIES)</span></label>
+      <label class="opt"><input type="radio" name="opt" value="OB13"><span>ΣΥΜΒΑΣΕΙΣ ΠΑΡΟΧΗΣ ΥΠΗΡΕΣΙΩΝ ΟΡΙΣΜΕΝΟΥ ΧΡΟΝΟΥ (FIXED-TERM SERVICE PROVISION AGREEMENTS BETWEEN TWO OR MORE LEGAL ENTITIES)</span></label>
+      <label class="opt"><input type="radio" name="opt" value="OB14"><span>ΣΥΜΒΑΣΕΙΣ ΠΑΡΟΧΗΣ ΥΠΗΡΕΣΙΩΝ ΑΟΡΙΣΤΟΥ ΧΡΟΝΟΥ (INDEFINITE-TERM SERVICE PROVISION AGREEMENTS BETWEEN TWO OR MORE LEGAL ENTITIES)</span></label>
+      <label class="opt"><input type="radio" name="opt" value="OB15"><span>ΣΥΜΒΑΣΕΙΣ ΜΕ ΣΤΑΘΕΡΗ ΑΞΙΑ ΣΥΜΒΟΛΑΙΟΥ (FIXED-VALUE AGREEMENTS BETWEEN TWO OR MORE LEGAL ENTITIES)<small class="opt-sub">ΑΓΟΡΑΠΩΛΗΤΗΡΙΑ ΕΓΓΡΑΦΑ ΑΚΙΝΗΤΗΣ ΙΔΙΟΚΤΗΣΙΑΣ (SALE AND PURCHASE OF IMMOVABLE PROPERTY AGREEMENTS), ΣΥΜΒΑΣΕΙΣ ΕΡΓΟΛΗΠΤΙΚΩΝ ΕΡΓΩΝ (CONSTRUCTION AGREEMENTS), ΣΥΜΒΑΣΕΙΣ ΔΗΜΟΣΙΟΥ (PUBLIC SECTOR AGREEMENTS)</small></span></label>
+    </fieldset>
+    <fieldset>
+      <legend>ΣΥΜΒΑΣΕΙΣ ΜΕΤΑΞΥ ΔΥΟ ΦΥΣΙΚΩΝ ΠΡΟΣΩΠΩΝ Ή ΜΕΤΑΞΥ ΦΥΣΙΚΟΥ ΚΑΙ ΝΟΜΙΚΟΥ ΠΡΟΣΩΠΟΥ (AGREEMENTS BETWEEN TWO INDIVIDUALS OR BETWEEN AN INDIVIDUAL AND A LEGAL ENTITY)</legend>
+      <label class="opt"><input type="radio" name="opt" value="OB21"><span>ΣΥΜΒΑΣΕΙΣ ΜΙΣΘΩΣΗΣ ΑΚΙΝΗΤΩΝ ΟΡΙΣΜΕΝΟΥ ΧΡΟΝΟΥ (FIXED-TERM PROPERTY LEASE AGREEMENTS BETWEEN TWO INDIVIDUALS OR BETWEEN AN INDIVIDUAL AND A LEGAL ENTITY)</span></label>
+      <label class="opt"><input type="radio" name="opt" value="OB23"><span>ΣΥΜΒΑΣΕΙΣ ΜΙΣΘΩΣΗΣ ΑΚΙΝΗΤΩΝ ΑΟΡΙΣΤΟΥ ΧΡΟΝΟΥ (INDEFINITE-TERM PROPERTY LEASE AGREEMENTS BETWEEN TWO INDIVIDUALS OR BETWEEN AN INDIVIDUAL AND A LEGAL ENTITY)</span></label>
+      <label class="opt"><input type="radio" name="opt" value="OB22"><span>ΣΥΜΒΑΣΕΙΣ ΕΡΓΟΔΟΤΗΣΗΣ ΟΡΙΣΜΕΝΟΥ ΧΡΟΝΟΥ (FIXED-TERM EMPLOYMENT AGREEMENTS BETWEEN TWO INDIVIDUALS OR BETWEEN AN INDIVIDUAL AND A LEGAL ENTITY)</span></label>
+      <label class="opt"><input type="radio" name="opt" value="OB24"><span>ΣΥΜΒΑΣΕΙΣ ΕΡΓΟΔΟΤΗΣΗΣ ΑΟΡΙΣΤΟΥ ΧΡΟΝΟΥ (INDEFINITE-TERM EMPLOYMENT AGREEMENTS BETWEEN TWO INDIVIDUALS OR BETWEEN AN INDIVIDUAL AND A LEGAL ENTITY)</span></label>
+      <label class="opt"><input type="radio" name="opt" value="OB25"><span>ΣΥΜΒΑΣΕΙΣ ΠΑΡΟΧΗΣ ΥΠΗΡΕΣΙΩΝ ΟΡΙΣΜΕΝΟΥ ΧΡΟΝΟΥ (FIXED-TERM SERVICE PROVISION AGREEMENTS BETWEEN TWO INDIVIDUALS OR BETWEEN AN INDIVIDUAL AND A LEGAL ENTITY)</span></label>
+      <label class="opt"><input type="radio" name="opt" value="OB26"><span>ΣΥΜΒΑΣΕΙΣ ΠΑΡΟΧΗΣ ΥΠΗΡΕΣΙΩΝ ΑΟΡΙΣΤΟΥ ΧΡΟΝΟΥ (INDEFINITE-TERM SERVICE PROVISION AGREEMENTS BETWEEN TWO INDIVIDUALS OR BETWEEN AN INDIVIDUAL AND A LEGAL ENTITY)</span></label>
+      <label class="opt"><input type="radio" name="opt" value="OB27"><span>ΣΥΜΒΑΣΕΙΣ ΜΕ ΣΤΑΘΕΡΗ ΑΞΙΑ ΣΥΜΒΟΛΑΙΟΥ (FIXED VALUE AGREEMENTS BETWEEN TWO INDIVIDUALS OR BETWEEN AN INDIVIDUAL AND A LEGAL ENTITY)<small class="opt-sub">ΑΓΟΡΑΠΩΛΗΤΗΡΙΑ ΕΓΓΡΑΦΑ ΑΚΙΝΗΤΗΣ ΙΔΙΟΚΤΗΣΙΑΣ (SALE AND PURCHASE OF IMMOVABLE PROPERTY AGREEMENTS), ΣΥΜΒΑΣΕΙΣ ΕΡΓΟΛΗΠΤΙΚΩΝ ΕΡΓΩΝ (CONSTRUCTION AGREEMENTS), ΣΥΜΒΑΣΕΙΣ ΔΗΜΟΣΙΟΥ (PUBLIC SECTOR AGREEMENTS), ΔΑΝΕΙΑ (LOANS)</small></span></label>
+    </fieldset>
+    <fieldset>
+      <legend>ΑΛΛΑ ΕΓΓΡΑΦΑ (OTHER)</legend>
+      <label class="opt"><input type="radio" name="opt" value="OB0"><span>ΑΛΛΑ ΕΓΓΡΑΦΑ (OTHER)</span></label>
+    </fieldset>
+    <div class="note">Το Εργαλείο δεν εφαρμόζεται για Συμπληρωματικές ή Αναθεωρημένες Συμβάσεις. Τα εν λόγω έγγραφα θα πρέπει να προσκομίζονται στο Τμήμα Φορολογίας. Για λεπτομέρειες σχετικά με τον τρόπο αποστολής, παρακαλώ ανατρέξτε στην επιλογή "ΑΛΛΑ ΕΓΓΡΑΦΑ (OTHER)".
+The Tool does not apply to Supplementary or Amendment Agreements. Such documents should be submitted to the Tax Department. For details regarding the submission method, please refer to the "ΑΛΛΑ ΕΓΓΡΑΦΑ (OTHER)" section.</div>
+    <div class="actions">
+      <button type="button" data-go="info">ΠΛΗΡΟΦΟΡΙΕΣ (INFORMATION)</button>
+      <button type="button" class="primary" id="btn-choose">ΕΠΟΜΕΝΟ (NEXT) &gt;&gt;</button>
+    </div>
+  </section>
+
+  <!-- Input page (one form, fields switched per category) -->
+  <section class="card hidden" id="page-input">
+    <h2 id="input-title"></h2>
+    <form id="form" novalidate>
+      <fieldset>
+        <legend>Έχει ήδη καταβληθεί τέλος χαρτοσήμου για το πρωτότυπο; (Has any stamp duty already been paid on the original?)</legend>
+        <label class="opt"><input type="radio" name="prior-duty" value="no"><span>Όχι, δεν έχει καταβληθεί τίποτα (No duty has been paid)</span></label>
+        <label class="opt"><input type="radio" name="prior-duty" value="yes"><span>Ναι, απαιτείται πρόσθετη χαρτοσήμανση (Yes, additional stamping is needed)</span></label>
+      </fieldset>
+      <div class="note">Ο υπολογισμός ισχύει μόνο όταν δεν έχει καταβληθεί καθόλου τέλος χαρτοσήμου για το πρωτότυπο. Αν έχει ήδη καταβληθεί μέρος του τέλους, η επιβάρυνση εξαρτάται από το ανεξόφλητο ποσό· απευθυνθείτε στο Τμήμα Φορολογίας μέσω της ισχύουσας διαδικασίας.
+The calculation applies only when no stamp duty has been paid on the original. If part has already been paid, charges depend on the unpaid duty; ask the Tax Department to assess the balance. <a href="https://www.gov.cy/mof-tfa/documents/odigos-diadikasias-chartosimansis/" target="_blank" rel="noopener">Οδηγός / Guide</a></div>
+      <div class="field" data-for="11 12"><label for="f-down">Προκαταβολή (Down Payment)</label><input id="f-down" inputmode="decimal" value="0"></div>
+      <div class="field" data-for="11"><label for="f-rent11">Ποσό μίσθωσης ανά περίοδο/μήνα (Rental amount per period/month)</label><input id="f-rent11" inputmode="decimal"></div>
+      <div class="field" data-for="12"><label for="f-rent12">Ετήσιο ποσό μίσθωσης (Rental amount per annum)</label><input id="f-rent12" inputmode="decimal"></div>
+      <div class="field" data-for="21"><label for="f-sal21">Αντιπαροχή ανά περίοδο/μήνα (Compensation per period/month)</label><input id="f-sal21" inputmode="decimal"></div>
+      <div class="field" data-for="22"><label for="f-sal22">Ετήσια πρόσοδος (Annuity)</label><input id="f-sal22" inputmode="decimal"></div>
+      <div class="field" data-for="23"><label for="f-sal23">Ετήσια Αντιπαροχή (Annual Compensation)</label><input id="f-sal23" inputmode="decimal"></div>
+      <div class="field" data-for="31"><label for="f-amount">Αξία συμβολαίου (Value of contract)</label><input id="f-amount" inputmode="decimal"></div>
+      <div class="field" data-for="11 21"><label for="f-periods">Αριθμός περιόδων/μηνών (Number of periods/months)</label><input id="f-periods" inputmode="numeric"></div>
+      <div class="field" data-for="11 12 21 22 23 31"><label for="f-dcontract">Ημερομηνία πρώτης υπογραφής (Date of first signature)</label><input id="f-dcontract" type="date"></div>
+      <div class="field" data-for="11 12 21 22 23 31"><label for="f-dstamp">Ημερομηνία Χαρτοσήμανσης (Date of Stamping)</label><input id="f-dstamp" type="date"></div>
+      <div class="field" data-for="11 12 21 22 23 31"><label for="f-copies">Αριθμός αντιγράφων (Number of copies)</label><input id="f-copies" inputmode="numeric" value="0"></div>
+    </form>
+    <div class="errors hidden" id="input-errors"></div>
+    <div class="actions">
+      <button type="button" data-go="0">&lt;&lt; ΠΙΣΩ (BACK)</button>
+      <button type="button" class="primary" id="btn-calc">ΕΠΟΜΕΝΟ (NEXT) &gt;&gt;</button>
+    </div>
+  </section>
+
+  <!-- Results -->
+  <section class="card hidden" id="page-results">
+    <h2 id="results-title"></h2>
+    <p class="sub" id="results-mode"></p>
+    <table class="res" id="results-table"></table>
+    <div class="actions">
+      <button type="button" data-go="input">&lt;&lt; ΠΙΣΩ (BACK)</button>
+      <button type="button" class="primary" data-go="names">ΕΠΟΜΕΝΟ (NEXT) &gt;&gt;</button>
+    </div>
+  </section>
+
+  <!-- Taxpayer details -->
+  <section class="card hidden" id="page-names">
+    <div class="field wide"><label for="f-tic" id="tic-label"></label><input id="f-tic" autocomplete="off" maxlength="20"></div>
+    <div class="field wide"><label for="f-name">ΟΝΟΜΑ ΦΟΡΟΛΟΓΟΥΜΕΝΟΥ-TAXPAYER'S NAME *</label><input id="f-name" autocomplete="off"></div>
+    <fieldset class="parties">
+      <legend>ΣΥΜΒΑΛΛΟΜΕΝΟΙ (CONTRACTING PARTIES)</legend>
+      <div class="party-head"><span></span><span>ΑΡ. ΤΑΥΤΟΤΗΤΑΣ / ΑΡ. ΕΓΓΡΑΦΗΣ ΕΤΑΙΡΕΙΑΣ (ID NUMBER / COMPANY REGISTRATION NUMBER)</span></div>
+      <div class="party"><input id="f-p1" autocomplete="off" aria-label="Contracting party 1" placeholder="Συμβαλλόμενος 1 *"><input id="f-p1n" autocomplete="off" aria-label="Party 1 ID or registration number" placeholder="ID / Reg. No."></div>
+      <div class="party"><input id="f-p2" autocomplete="off" aria-label="Contracting party 2" placeholder="Συμβαλλόμενος 2 *"><input id="f-p2n" autocomplete="off" aria-label="Party 2 ID or registration number" placeholder="ID / Reg. No."></div>
+      <div class="party"><input id="f-p3" autocomplete="off" aria-label="Contracting party 3" placeholder="Συμβαλλόμενος 3"><input id="f-p3n" autocomplete="off" aria-label="Party 3 ID or registration number" placeholder="ID / Reg. No."></div>
+    </fieldset>
+    <p class="sub">* ΥΠΟΧΡΕΩΤΙΚΑ ΠΕΔΙΑ (REQUIRED FIELDS)</p>
+    <div class="errors hidden" id="names-errors"></div>
+    <div class="actions">
+      <button type="button" data-go="results">&lt;&lt; ΠΙΣΩ (BACK)</button>
+      <button type="button" class="primary" id="btn-report">ΕΠΟΜΕΝΟ (NEXT) &gt;&gt;</button>
+    </div>
+  </section>
+
+  <!-- Report -->
+  <section class="card hidden" id="page-report">
+    <div class="note" id="report-msg">Από 01/04/2026, για πρωτότυπο έγγραφο που υπόκειται σε τέλος, υποβάλετε το αίτημα μέσω Tax For All. Μετά την εξέταση και καταβολή του ποσού, προσκομίστε το έγγραφο στο Επαρχιακό Γραφείο του Τμήματος Φορολογίας για χαρτοσήμανση. Το τελικό οφειλόμενο ποσό επιβεβαιώνεται από το Τμήμα.
+From 01/04/2026, submit an original document subject to stamp duty through Tax For All. After assessment and payment, present it at a district Tax Department office for stamping. The Department confirms the amount due.
+<a href="https://www.gov.cy/mof-tfa/documents/odigos-diadikasias-chartosimansis/" target="_blank" rel="noopener">Οδηγός νέας διαδικασίας / New procedure guide</a></div>
+    <div class="actions" style="margin-bottom:16px">
+      <button type="button" data-go="names">&lt;&lt; ΠΙΣΩ (BACK)</button>
+      <span style="display:flex;gap:10px;flex-wrap:wrap">
+        <button type="button" class="primary" id="btn-print">Εκτύπωση (Print) / PDF</button>
+      </span>
+    </div>
+    <div id="report"></div>
+  </section>
+
+  <!-- Other documents -->
+  <section class="card hidden" id="page-corporate">
+    <h2>ΑΛΛΑ ΕΓΓΡΑΦΑ (OTHER)</h2>
+    <p>Το Εργαλείο Υπολογισμού Τέλους Χαρτοσήμου δεν εφαρμόζεται για άλλες κατηγορίες εγγράφων πέραν αυτών που αναφέρονται αναλυτικά στην προηγούμενη οθόνη.<br>
+    The Stamp Duty Calculation Tool does not apply to other categories of documents beyond those specifically listed on the previous screen.</p>
+    <ul>
+      <li>Για έγγραφα εκτός των κατηγοριών του εργαλείου, συμπληρωματικές ή αναθεωρημένες συμβάσεις και έγγραφα με ήδη καταβληθέν μέρος του τέλους, ζητήστε εκτίμηση από το Τμήμα Φορολογίας: <a href="mailto:stampdutytaxdept@tax.mof.gov.cy">stampdutytaxdept@tax.mof.gov.cy</a> ή 22308000 (επιλογές 1 και 4).<br>For documents outside the tool, supplementary or amended agreements, and partially stamped originals, ask the Tax Department to assess the amount.</li>
+      <li>Από 01/04/2026 τα πρωτότυπα έγγραφα που υπόκεινται σε τέλος υποβάλλονται μέσω Tax For All και, μετά την εξέταση και πληρωμή, προσκομίζονται στο Επαρχιακό Γραφείο για χαρτοσήμανση. Δείτε τον <a href="https://www.gov.cy/mof-tfa/documents/odigos-diadikasias-chartosimansis/" target="_blank" rel="noopener">οδηγό νέας διαδικασίας / new procedure guide</a>.</li>
+    </ul>
+    <div class="actions"><button type="button" data-go="0">&lt;&lt; ΠΙΣΩ (BACK)</button></div>
+  </section>
+
+  <!-- Information (from the embedded help PDF) -->
+  <section class="card hidden info" id="page-info">
+    <h2>ΠΛΗΡΟΦΟΡΙΕΣ (INFORMATION)</h2>
+    <h3>Ποσοστά επί της αξίας σύμβασης (Rates on the contract value)</h3>
+    <table>
+      <tr><td>€1 – €5.000</td><td>0,00</td></tr>
+      <tr><td>€5.000 – €170.000</td><td>1,50‰</td></tr>
+      <tr><td>€170.000 και άνω (and above)</td><td>2,00‰</td></tr>
+      <tr><td>Μέγιστο τέλος χαρτοσήμου (Maximum)</td><td>€20.000</td></tr>
+    </table>
+    <h3>Θεωρητικά έτη (Theoretical years)</h3>
+    <table>
+      <tr><td>Μίσθωση ακινήτου για απεριόριστο χρόνο (Lease, unspecified period)</td><td>100</td></tr>
+      <tr><td>Σύμβαση μεταξύ 2 νομικών προσώπων (Between 2 legal entities)</td><td>20</td></tr>
+      <tr><td>Σύμβαση εργοδότησης νομικού και φυσικού προσώπου (Legal entity and individual)</td><td>12</td></tr>
+    </table>
+    <h3>Αντίγραφα (Copies)</h3>
+    <p>Εάν το τέλος χαρτοσήμου στο πρωτότυπο δεν υπερβαίνει τα €2, για κάθε αντίγραφο καταβάλλεται το ίδιο τέλος με το πρωτότυπο. Σε κάθε άλλη περίπτωση €2 ανά αντίγραφο.<br>
+    If the duty on the original does not exceed €2, each copy pays the same duty as the original; otherwise €2 per copy. This rule is applied to the original duty before late charges in law mode. Tool mode preserves the Excel workbook's copy calculation.</p>
+    <h3>Επιβαρύνσεις (Late stamping charges)</h3>
+    <p><b>Εργαλείο Τμήματος (Tax Department tool, 2023 and 30.06.2025):</b> up to 30 days after the contract: none. Later and under 6 months (by the tool's month count): duty ≤ €35 → +100%; duty &gt; €35 → €35 + 10% of the excess. 6 months or more: double that. Duty is 1,5‰ / 2‰ of the exact amount.</p>
+    <p><b>Άρθρο 20 (text of the law):</b> within 30 days of the first signature: none. Within six months: duty ≤ €2 → +€2; duty up to €35 → +100%; duty above €35 → €35 + 10 cents for every euro or part of a euro above €35. After six months: double those charges. Duty is €1,50 / €2,00 for every €1.000 or part of €1.000.</p>
+    <p>The <a href="https://www.gov.cy/media/sites/167/2026/01/Stamps-final-wp.xlsm">Stamps-final-wp.xlsm</a> workbook used for this replica retains the earlier calculation logic and includes the categories by parties, service provision agreements, and a cut-off after 31.12.2025 (Law 239(I)/2025).</p>
+    <h3>Πληροφορίες / Επικοινωνία</h3>
+    <p>Κλάδος Διαχείρισης Χαρτοσήμων: 22308000 (επιλογές 1 και 4) · <a href="mailto:stampdutytaxdept@tax.mof.gov.cy">stampdutytaxdept@tax.mof.gov.cy</a></p>
+    <p>Για την ισχύουσα διαδικασία από 01/04/2026, δείτε τον <a href="https://www.gov.cy/mof-tfa/documents/odigos-diadikasias-chartosimansis/" target="_blank" rel="noopener">οδηγό Tax For All / Tax For All guide</a>.</p>
+    <div class="actions"><button type="button" data-go="0">&lt;&lt; ΠΙΣΩ (BACK)</button></div>
+  </section>
+</main>
+
+<script src="./app.js" defer></script>
+</body>
+</html>
