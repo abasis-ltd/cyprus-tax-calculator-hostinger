@@ -961,6 +961,36 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://cyprustaxcalculator.abasis.ai/guides/capital-gains/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cyprustaxcalculator.abasis.ai/guides/capital-gains/"/>
+    <xhtml:link rel="alternate" hreflang="el" href="https://cyprustaxcalculator.abasis.ai/el/guides/capital-gains/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://cyprustaxcalculator.abasis.ai/ru/guides/capital-gains/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cyprustaxcalculator.abasis.ai/guides/capital-gains/"/>
+    <lastmod>2026-10-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cyprustaxcalculator.abasis.ai/el/guides/capital-gains/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cyprustaxcalculator.abasis.ai/guides/capital-gains/"/>
+    <xhtml:link rel="alternate" hreflang="el" href="https://cyprustaxcalculator.abasis.ai/el/guides/capital-gains/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://cyprustaxcalculator.abasis.ai/ru/guides/capital-gains/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cyprustaxcalculator.abasis.ai/guides/capital-gains/"/>
+    <lastmod>2026-10-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cyprustaxcalculator.abasis.ai/ru/guides/capital-gains/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cyprustaxcalculator.abasis.ai/guides/capital-gains/"/>
+    <xhtml:link rel="alternate" hreflang="el" href="https://cyprustaxcalculator.abasis.ai/el/guides/capital-gains/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://cyprustaxcalculator.abasis.ai/ru/guides/capital-gains/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cyprustaxcalculator.abasis.ai/guides/capital-gains/"/>
+    <lastmod>2026-10-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://cyprustaxcalculator.abasis.ai/connect/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://cyprustaxcalculator.abasis.ai/connect/"/>
     <xhtml:link rel="alternate" hreflang="el" href="https://cyprustaxcalculator.abasis.ai/el/connect/"/>

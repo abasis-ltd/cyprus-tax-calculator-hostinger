@@ -114,6 +114,13 @@ at /guides/<slug>/, /el/guides/<slug>/ and /ru/guides/<slug>/.
   registration from the first day on form Υ.Κ.Α. 1-013, 16.6% of your category’s
   insurable earnings each quarter, the HRDA levy from 6 April 2026, and GESY collected
   alongside.
+- [Capital gains in Cyprus: shares, crypto and property](https://cyprustaxcalculator.abasis.ai/guides/capital-gains/):
+  an investor's gain on shares, funds and bonds is not income and stays off the T.D.1
+  (the return's own Part 7 says so); a trading profit goes in PART 4 H, code 5, exempt
+  under article 8(22) but with GESY at 2.65%; crypto is untaxed for an investor in 2025
+  and taxed at 8% from 2026 under article 20E; capital gains tax of 20% reaches only
+  Cyprus property and shares in companies that own it, on forms T.D.401 and T.D.402,
+  with the 2026 exemptions of €30,000, €50,000 and €150,000.
 
 ## Tools for AI assistants (MCP)
 
