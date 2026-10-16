@@ -29,6 +29,7 @@ at its own path and carries the same content.
 Step-by-step guides to Cyprus tax paperwork, written from the official forms, the
 department's own guides and the law. Each guide exists in English, Greek and Russian
 at /guides/<slug>/, /el/guides/<slug>/ and /ru/guides/<slug>/.
+The 2025 filing guide is hosted on taxendaxi.com in all three languages.
 
 - [Guides index](https://cyprustaxcalculator.abasis.ai/guides/)
 - [Getting a Cyprus tax number through Tax For All](https://cyprustaxcalculator.abasis.ai/guides/tin/):
@@ -57,7 +58,7 @@ at /guides/<slug>/, /el/guides/<slug>/ and /ru/guides/<slug>/.
   no minimum salary and no degree, the €8,550 annual cap, the three years abroad and the
   four-month gap rule, the seven years starting the year after employment begins, and why
   a change of employer ends it.
-- [Filing the 2025 tax return in TAXISnet](https://cyprustaxcalculator.abasis.ai/guides/file-return-2025/):
+- [Filing the 2025 tax return in TAXISnet](https://taxendaxi.com/guides/file-return-2025/):
   who must file for 2025, what to collect, the return part by part, the department's own
   list of common mistakes, Final Submit, paying in the Tax Portal, the 31 October 2026
   deadline and what late filing costs, and how to correct a return already filed.

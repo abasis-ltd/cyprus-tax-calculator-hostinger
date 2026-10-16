@@ -1,6 +1,11 @@
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
+  # Filing instructions now live on TaxEndaxi. Run before the existing-file rule:
+  # the build keeps a fallback page for static hosts, but production must return 301.
+  RewriteRule ^(?:en/)?guides/file-return-2025(?:/index\.html|/)?$ https://taxendaxi.com/guides/file-return-2025/ [R=301,L,NE]
+  RewriteRule ^(el|ru)/guides/file-return-2025(?:/index\.html|/)?$ https://taxendaxi.com/$1/guides/file-return-2025/ [R=301,L,NE]
+  RewriteRule ^en(?:/(.*))?$ /$1 [R=301,L,NE]
   RewriteRule ^index\.html$ - [L]
 
   # Serve existing files and directories as-is (assets, /el/, /ru/)
@@ -13,11 +18,9 @@
   # then fails cleanly and src/staleChunkReload.ts reloads the tab.
   RewriteRule ^assets/ - [R=404,L]
 
-  # Per-language SPA shells fall back to their own index.html
-  RewriteRule ^(el|ru)(/.*)?$ /$1/index.html [L]
-
-  # Everything else → root (English) SPA shell
-  RewriteRule . /index.html [L]
+  # All published routes have prerendered files. Do not invent a homepage for
+  # unknown paths: search crawlers must receive an actual 404.
+  RewriteRule . - [R=404,L]
 </IfModule>
 
 # ES module workers emitted by Vite use .mjs. Hostinger/LiteSpeed otherwise
