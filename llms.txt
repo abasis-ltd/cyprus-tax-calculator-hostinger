@@ -169,3 +169,5 @@ on the 2026 tax reform, including the explanatory guide, worked examples, the
 official FAQ for individuals, and the employer income tax withholding
 calculation tool. Links to each document are listed in the "Official References
 & Forms" section of the calculator page.
+
+- [IR63 / TD63 certificate 2025](https://taxendaxi.com/guides/ir63-2025/): get and check an employer earnings certificate; English, Russian and Greek.

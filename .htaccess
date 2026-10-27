@@ -3,8 +3,8 @@
   RewriteBase /
   # Filing instructions now live on TaxEndaxi. Run before the existing-file rule:
   # the build keeps a fallback page for static hosts, but production must return 301.
-  RewriteRule ^(?:en/)?guides/file-return-2025(?:/index\.html|/)?$ https://taxendaxi.com/guides/file-return-2025/ [R=301,L,NE]
-  RewriteRule ^(el|ru)/guides/file-return-2025(?:/index\.html|/)?$ https://taxendaxi.com/$1/guides/file-return-2025/ [R=301,L,NE]
+  RewriteRule ^(?:en/)?guides/(file-return-2025|ir63-2025)(?:/index\.html|/)?$ https://taxendaxi.com/guides/$1/ [R=301,L,NE]
+  RewriteRule ^(el|ru)/guides/(file-return-2025|ir63-2025)(?:/index\.html|/)?$ https://taxendaxi.com/$1/guides/$2/ [R=301,L,NE]
   RewriteRule ^en(?:/(.*))?$ /$1 [R=301,L,NE]
   RewriteRule ^index\.html$ - [L]
 
