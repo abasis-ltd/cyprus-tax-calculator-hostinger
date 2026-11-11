@@ -42,6 +42,10 @@
   Header set X-XSS-Protection "1; mode=block"
   # The site is HTTPS-only; browsers ignore this header on plain HTTP.
   Header always set Strict-Transport-Security "max-age=31536000"
+  # Other sites learn only the origin a visitor came from, never the page path. The page
+  # uses none of the listed features; denying them means no script or frame can ask.
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+  Header set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=(), serial=(), bluetooth=(), display-capture=(), browsing-topics=()"
   # This origin holds tax IDs and the declaration draft, renders the assistant's
   # markdown and accepts data from the extension bridge, so scripts may only come from
   # here. What each source is for:
